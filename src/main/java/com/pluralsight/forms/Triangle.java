@@ -18,6 +18,19 @@ public class Triangle extends Shape {
 
     @Override
     public void paint() {
-        //stuff to draw triangle
+        // Starting position
+        turtle.penUp();
+        turtle.goTo(location.x, location.y);
+        turtle.penDown();
+
+        // Color and pen width
+        turtle.setColor(color);
+        turtle.setPenWidth(border);
+
+        // Draw the triangle
+        for (int i = 0; i < 3; i++) {
+            turtle.forward(baseLength);
+            turtle.turnLeft(120);
+        }
     }
 }
