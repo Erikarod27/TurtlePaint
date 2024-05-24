@@ -105,8 +105,15 @@ public class MainDisplay {
     }
 
     private void saveImage() {
-        // Implement save functionality
-        System.out.println("Save not implemented yet.");
+        System.out.println("Enter the filename to save the image (e.g., image.png): ");
+        String filename = scanner.next();
+
+        try {
+            world.saveAs(filename);
+            System.out.println("Image saved successfully as " + filename);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Error saving file: " + e.getMessage());
+        }
     }
 
     private Color getColorFromString(String colorName) {
