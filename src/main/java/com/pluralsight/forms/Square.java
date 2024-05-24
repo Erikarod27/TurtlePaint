@@ -1,28 +1,38 @@
 package com.pluralsight.forms;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Point;
 
-//Abstract shape class
 public class Square extends Shape {
-    public Square (Turtle turtle, Point location, String color, double border) {
+    private double sideLength;
+
+    public Square(Turtle turtle, Point location, Color color, double border, double sideLength) {
         super(turtle, location, color, border);
+        this.sideLength = sideLength;
+    }
+
+    public double getSideLength() {
+        return sideLength;
+    }
+    public void setSideLength(double sideLength) {
+        this.sideLength = sideLength;
     }
 
     @Override
     public void paint() {
-        //stuff to draw square
-        getTurtle().setColor(getColor());
-        getTurtle().setPenWidth(getBorder());
-        getTurtle().penUp();
-        getTurtle().goTo(getLocation().x, getLocation().y);
+        // Starting position
+        turtle.penUp();
+        turtle.goTo(location.x, location.y);
+        turtle.penDown();
 
-        getTurtle().forward();
-        getTurtle().turnRight(90);
-        getTurtle().forward();
-        getTurtle().turnRight(90);
-        getTurtle().forward();
-        getTurtle().turnRight(90);
-        getTurtle().forward();
+        // Color and pen width
+        turtle.setColor(color);
+        turtle.setPenWidth(border);
+
+        // Draw the square
+        for (int i = 0; i < 4; i++) {
+            turtle.forward(sideLength);
+            turtle.turnRight(90);
+        }
     }
-
 }

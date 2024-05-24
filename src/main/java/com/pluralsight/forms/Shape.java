@@ -1,23 +1,24 @@
 package com.pluralsight.forms;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Point;
 
 public abstract class Shape {
-    //Instance variables shared by child classes
+    // Instance variables shared by child classes
     protected Turtle turtle;
     protected Point location;
-    protected String color;
+    protected Color color;
     protected double border;
 
-    //Shape constructor
-    public Shape(Turtle turtle, Point location, String color, double border) {
+    // Shape constructor
+    public Shape(Turtle turtle, Point location, Color color, double border) {
         this.turtle = turtle;
         this.location = location;
         this.color = color;
         this.border = border;
     }
 
-    //Getters and setters for instance variables
+    // Getters and setters for instance variables
     public Turtle getTurtle() {
         return turtle;
     }
@@ -30,10 +31,10 @@ public abstract class Shape {
     public void setLocation(Point location) {
         this.location = location;
     }
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
     public double getBorder() {
@@ -43,6 +44,6 @@ public abstract class Shape {
         this.border = border;
     }
 
-    //Abstract paint method
+    // Abstract paint method
     public abstract void paint();
 }
